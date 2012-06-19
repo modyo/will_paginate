@@ -1,16 +1,16 @@
 es:
   will_paginate:
-    previous_label: "&#8592; Previous"
-    next_label: "Next &#8594;"
+    previous_label: "&#8592; Anterior"
+    next_label: "Siguiente &#8594;"
     page_gap: "&hellip;"
 
     page_entries_info:
       single_page:
-        zero:  "No %{model} found"
-        one:   "Displaying 1 %{model}"
-        other: "Displaying all %{count} %{model}"
+        zero:  "No %{model} encontrado"
+        one:   "Mostrando 1 %{model}"
+        other: "Mostrando todos %{count} %{model}"
       single_page_html:
-        zero:  "No %{model} found"
+        zero:  "No %{model} encontrado"
         one:   "Displaying <b>1</b> %{model}"
         other: "Displaying <b>all&nbsp;%{count}</b> %{model}"
 
