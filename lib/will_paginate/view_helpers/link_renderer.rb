@@ -41,16 +41,11 @@ module WillPaginate
     protected
     
       def page_number(page)
-        unless page == current_page
-          link(page, page, :rel => rel_value(page))
-        else
-          tag(:em, page, :class => 'current')
-        end
+        tag :li, link(page, page, :rel => rel_value(page)), :class => ('active' if page == current_page)
       end
-      
+
       def gap
-        text = @template.will_paginate_translate(:page_gap) { '&hellip;' }
-        %(<span class="gap">#{text}</span>)
+        tag :li, link('&hellip;'.html_safe, '#'), :class => 'disabled'
       end
       
       def previous_page
@@ -64,15 +59,12 @@ module WillPaginate
       end
       
       def previous_or_next_page(page, text, classname)
-        if page
-          link(text, page, :class => classname)
-        else
-          tag(:span, text, :class => classname + ' disabled')
-        end
+        tag :li, link(text, page || '#'),
+            :class => [(classname[0..3] if  @options[:page_links]), (classname if @options[:page_links]), ('disabled' unless page)].join(' ')
       end
       
       def html_container(html)
-        tag(:div, html, container_attributes)
+        tag :div, tag(:ul, html), container_attributes
       end
       
       # Returns URL params for +page_link_or_span+, taking the current GET params
