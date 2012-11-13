@@ -1,5 +1,10 @@
 # will_paginate
 
+CHANGES FROM ORIGINAL:
+-Bootstrap style link renderer as the default renderer
+
+
+
 will_paginate is a pagination library that integrates with Ruby on Rails, Sinatra, Merb, DataMapper and Sequel.
 
 Installation:
