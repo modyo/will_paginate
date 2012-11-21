@@ -113,10 +113,8 @@ module WillPaginate
         url_params = @base_url_params.dup
         add_current_page_param(url_params, page)
 
-        Rails.logger.debug "[WillPaginate] Generating pagination url for #{@current_app.inspect}"
-
-        if @current_app
-          return @current_app.url_for(url_params)
+        if @options[:current_app]
+          return @options[:current_app].url_for(url_params)
         end
 
         @template.url_for(url_params)
