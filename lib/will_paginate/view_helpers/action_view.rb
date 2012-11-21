@@ -112,6 +112,10 @@ module WillPaginate
         url_params = @base_url_params.dup
         add_current_page_param(url_params, page)
 
+        if @current_app.defined?
+          return @current_app.url_for(url_params)
+        end
+
         @template.url_for(url_params)
       end
 
