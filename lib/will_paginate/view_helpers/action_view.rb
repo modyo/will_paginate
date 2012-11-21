@@ -28,9 +28,7 @@ module WillPaginate
       collection ||= infer_collection_from_controller
 
       options = options.symbolize_keys
-      options[:renderer] ||= LinkRenderer
-
-      @current_app = options[:current_app]
+      options[:renderer] ||= LinkRenderer      
 
       super(collection, options).try(:html_safe)
     end
