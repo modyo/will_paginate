@@ -113,7 +113,7 @@ module WillPaginate
         url_params = @base_url_params.dup
         add_current_page_param(url_params, page)
 
-        if @options[:current_app]
+        unless @options[:current_app].nil?
           return @options[:current_app].url_for(url_params)
         end
 
