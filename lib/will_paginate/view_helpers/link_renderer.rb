@@ -17,6 +17,7 @@ module WillPaginate
         super(collection, options)
         @template = template
         @container_attributes = @base_url_params = nil
+        @customer_app = options[:current_app]
       end
 
       # Process it! This method returns the complete HTML string which contains

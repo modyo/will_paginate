@@ -76,6 +76,9 @@ module WillPaginate
 
       options[:previous_label] ||= will_paginate_translate(:previous_label) { '&#8592; Previous' }
       options[:next_label]     ||= will_paginate_translate(:next_label) { 'Next &#8594;' }
+      
+      # Current app for generation routes from engines correctly
+      options[:current_app] ||= main_app
 
       # get the renderer instance
       renderer = case options[:renderer]
