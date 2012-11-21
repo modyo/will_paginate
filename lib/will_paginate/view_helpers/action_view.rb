@@ -30,7 +30,9 @@ module WillPaginate
       options = options.symbolize_keys
       options[:renderer] ||= LinkRenderer
 
-      super(collection, options)
+      @current_app = options[:current_app]
+
+      super(collection, options).try(:html_safe)
     end
 
     def page_entries_info(collection = nil, options = {}) #:nodoc:
@@ -113,7 +115,7 @@ module WillPaginate
         url_params = @base_url_params.dup
         add_current_page_param(url_params, page)
 
-        if @current_app.defined?
+        if @current_app
           return @current_app.url_for(url_params)
         end
 
