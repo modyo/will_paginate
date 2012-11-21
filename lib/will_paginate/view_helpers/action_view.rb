@@ -30,6 +30,8 @@ module WillPaginate
       options = options.symbolize_keys
       options[:renderer] ||= LinkRenderer
 
+      @current_app = options[:current_app]
+
       super(collection, options).try(:html_safe)
     end
 
@@ -112,7 +114,7 @@ module WillPaginate
         url_params = @base_url_params.dup
         add_current_page_param(url_params, page)
 
-        if @current_app.defined?
+        if @current_app
           return @current_app.url_for(url_params)
         end
 
