@@ -85,6 +85,7 @@ module WillPaginate
           target = url(target)
         end
         attributes[:href] = target
+        attributes[:'data-remote'] = true if @options[:remote].present? && @options[:remote]
         tag(:a, text, attributes)
       end
       
